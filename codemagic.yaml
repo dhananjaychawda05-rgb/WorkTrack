@@ -1,0 +1,22 @@
+workflows:
+  flutter-app:
+    name: Flutter CI/CD
+    max_build_duration: 60
+
+    environment:
+      flutter: stable
+
+    scripts:
+      - flutter clean
+      - flutter pub get
+      - flutter test
+
+      # Android build
+      - flutter build appbundle
+
+      # iOS build
+      - flutter build ios --release --no-codesign
+
+    artifacts:
+      - build/**/outputs/**/*.aab
+      - build/ios/**/*.ipa
