@@ -1,22 +1,18 @@
 workflows:
-  flutter-app:
-    name: Flutter CI/CD
-    max_build_duration: 60
-
+  android-workflow:
     environment:
+      groups:
+        - android_signing   # This pulls all 4 variables above
       flutter: stable
-
+      java: 17
     scripts:
-      - flutter clean
-      - flutter pub get
-      - flutter test
-
-      # Android build
-      - flutter build appbundle
-
-      # iOS build
-      - flutter build ios --release --no-codesign
-
+      - name: Set up keystore
+        script: |
+          echo $CM_KEYSTORE | base64 --decode > $CM_BUILD_DIR/my-release-key.jks
+      - name: Build release APK
+        script: |
+          flutter build apk --release \
+            --build-name=1.0.0 \
+            --build-number=$BUILD_NUMBER
     artifacts:
-      - build/**/outputs/**/*.aab
-      - build/ios/**/*.ipa
+      - build/**/outputs/**/*.apk
