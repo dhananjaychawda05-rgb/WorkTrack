@@ -1,0 +1,56 @@
+{
+  "app_name": "WorkTrace",
+  "onboarding": {
+    "skip": "छोड़ें",
+    "get_started": "शुरू करें",
+    "slide1_title": "अपने समय को ट्रैक करें",
+    "slide1_desc": "एक क्लिक से अपने काम के घंटों को आसानी से ट्रैक करें।",
+    "slide2_title": "रुझानों का विश्लेषण करें",
+    "slide2_desc": "विस्तृत चार्ट के साथ अपनी उत्पादकता देखें।",
+    "slide3_title": "प्रोफ़ाइल प्रबंधित करें",
+    "slide3_desc": "अपनी सेटिंग्स कस्टमाइज़ करें और अपनी उपलब्धियां देखें।"
+  },
+  "auth": {
+    "login": "लॉगिन",
+    "signup": "साइन अप",
+    "forgot_password": "पासवर्ड भूल गए?",
+    "email": "ईमेल पता",
+    "password": "पासवर्ड",
+    "confirm_password": "पासवर्ड की पुष्टि करें",
+    "name": "पूरा नाम",
+    "google_sign_in": "गूगल के साथ साइन इन करें",
+    "send_otp": "ओटीपी भेजें",
+    "dont_have_account": "खाता नहीं है?",
+    "already_have_account": "पहले से खाता है?"
+  },
+  "home": {
+    "greeting": "शुभ प्रभात,",
+    "clock_in": "क्लॉक इन",
+    "clock_out": "क्लॉक आउट",
+    "today_summary": "आज का सारांश",
+    "total_hours": "कुल घंटे",
+    "sessions": "सत्र",
+    "first_in": "पहला इन",
+    "last_out": "आखिरी आउट",
+    "timeline": "समयरेखा",
+    "today_log": "आज का लॉग"
+  },
+  "history": {
+    "title": "इतिहास",
+    "monthly_pulse": "मासिक पल्स",
+    "weekly_chart": "साप्ताहिक गतिविधि",
+    "daily_archives": "दैनिक अभिलेखागार"
+  },
+  "profile": {
+    "title": "प्रोफ़ाइल",
+    "stats": "आंकड़े",
+    "settings": "सेटिंग्स",
+    "theme": "डार्क थीम",
+    "language": "भाषा",
+    "work_hours": "दैनिक कार्य के घंटे",
+    "notifications": "सूचनाएं",
+    "export_data": "डेटा निर्यात करें",
+    "logout": "लॉगआउट",
+    "logout_confirm": "क्या आप वाकई लॉगआउट करना चाहते हैं?"
+  }
+}

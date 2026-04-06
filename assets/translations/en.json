@@ -1,0 +1,56 @@
+{
+  "app_name": "WorkTrace",
+  "onboarding": {
+    "skip": "Skip",
+    "get_started": "Get Started",
+    "slide1_title": "Track Your Time",
+    "slide1_desc": "Easily track your work hours with a simple click.",
+    "slide2_title": "Analyze Trends",
+    "slide2_desc": "Visualize your productivity with detailed charts.",
+    "slide3_title": "Manage Profile",
+    "slide3_desc": "Customize your settings and view your achievements."
+  },
+  "auth": {
+    "login": "Login",
+    "signup": "Sign Up",
+    "forgot_password": "Forgot Password?",
+    "email": "Email Address",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "name": "Full Name",
+    "google_sign_in": "Sign in with Google",
+    "send_otp": "Send OTP",
+    "dont_have_account": "Don't have an account?",
+    "already_have_account": "Already have an account?"
+  },
+  "home": {
+    "greeting": "Good morning,",
+    "clock_in": "CLOCK IN",
+    "clock_out": "CLOCK OUT",
+    "today_summary": "Today's Summary",
+    "total_hours": "Total Hours",
+    "sessions": "Sessions",
+    "first_in": "First In",
+    "last_out": "Last Out",
+    "timeline": "Timeline",
+    "today_log": "Today's Log"
+  },
+  "history": {
+    "title": "History",
+    "monthly_pulse": "Monthly Pulse",
+    "weekly_chart": "Weekly Activity",
+    "daily_archives": "Daily Archives"
+  },
+  "profile": {
+    "title": "Profile",
+    "stats": "Statistics",
+    "settings": "Settings",
+    "theme": "Dark Theme",
+    "language": "Language",
+    "work_hours": "Daily Work Hours",
+    "notifications": "Notifications",
+    "export_data": "Export Data",
+    "logout": "Logout",
+    "logout_confirm": "Are you sure you want to logout?"
+  }
+}
