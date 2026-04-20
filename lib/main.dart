@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:work_trace_app/core/constants/app_assets.dart';
 import 'package:work_trace_app/core/theme/app_theme.dart';
 import 'package:work_trace_app/core/theme/theme_cubit.dart';
+import 'package:work_trace_app/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:work_trace_app/features/auth/presentation/bloc/auth_event.dart';
 import 'package:work_trace_app/injection/injection.dart';
 import 'package:work_trace_app/routes/app_routes.dart';
 
@@ -19,7 +21,10 @@ void main() async {
       path: AppAssets.translationsFolder,
       fallbackLocale: const Locale('en'),
       child: MultiBlocProvider(
-        providers: [BlocProvider(create: (_) => getIt<ThemeCubit>())],
+        providers: [
+          BlocProvider(create: (_) => getIt<ThemeCubit>()),
+          BlocProvider(create: (_) => getIt<AuthBloc>()..add(AuthCheckRequested())),
+        ],
         child: const WorkTraceApp(),
       ),
     ),

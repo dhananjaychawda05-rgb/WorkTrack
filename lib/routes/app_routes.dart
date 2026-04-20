@@ -4,6 +4,7 @@ import 'package:work_trace_app/features/splash/pages/splash_page.dart';
 import '../features/auth/presentation/pages/forgot_password_page.dart';
 import '../features/auth/presentation/pages/login_page.dart';
 import '../features/auth/presentation/pages/register_page.dart';
+import '../features/home/presentation/pages/dashboard_page.dart';
 import '../features/onboarding/pages/onboarding_page.dart';
 import 'route_constants.dart';
 import '../core/widgets/common_text.dart';
@@ -39,6 +40,10 @@ final appRouter = GoRouter(
     GoRoute(
       path: RouteConstants.forgotPassword,
       builder: (context, state) => const ForgotPasswordPage(),
+    ),
+    GoRoute(
+      path: RouteConstants.home,
+      builder: (context, state) => const DashboardPage(),
     ),
   ],
 );

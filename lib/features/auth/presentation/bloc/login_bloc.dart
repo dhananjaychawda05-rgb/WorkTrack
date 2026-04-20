@@ -1,14 +1,14 @@
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
-import '../../../../core/utils/local_storage.dart';
+import '../../domain/usecases/login_usecase.dart';
 import 'login_event.dart';
 import 'login_state.dart';
 
 @injectable
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  final LocalStorage _localStorage;
+  final LoginUseCase _loginUseCase;
 
-  LoginBloc(this._localStorage) : super(const LoginState()) {
+  LoginBloc(this._loginUseCase) : super(const LoginState()) {
     on<LoginEmailChanged>(_onEmailChanged);
     on<LoginPasswordChanged>(_onPasswordChanged);
     on<LoginSubmitted>(_onSubmitted);
@@ -43,47 +43,33 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
     emit(state.copyWith(status: LoginStatus.loading));
 
-    try {
-      // Simulate API Call delay
-      await Future.delayed(const Duration(seconds: 2));
+    final result = await _loginUseCase.call(
+      email: state.email.trim(),
+      password: state.password.trim(),
+    );
 
-      // Mock success condition
-      if (state.email == 'test@test.com' && state.password == 'password') {
-        await _localStorage.setIsLoggedIn(true);
-        emit(state.copyWith(status: LoginStatus.success));
-      } else {
-        emit(
-          state.copyWith(
-            status: LoginStatus.failure,
-            errorMessage:
-                'Invalid credentials. Try test@test.com and password.',
-          ),
-        );
-      }
-    } catch (e) {
-      emit(
-        state.copyWith(status: LoginStatus.failure, errorMessage: e.toString()),
-      );
-    }
+    result.fold(
+      (failure) => emit(
+        state.copyWith(
+          status: LoginStatus.failure,
+          errorMessage: failure.message,
+        ),
+      ),
+      (user) => emit(state.copyWith(status: LoginStatus.success)),
+    );
   }
 
   Future<void> _onGoogleSubmitted(
     LoginGoogleSubmitted event,
     Emitter<LoginState> emit,
   ) async {
-    emit(state.copyWith(status: LoginStatus.loading));
-    await Future.delayed(const Duration(seconds: 1));
-    await _localStorage.setIsLoggedIn(true);
-    emit(state.copyWith(status: LoginStatus.success));
+    // Implement Google sign in if needed
   }
 
   Future<void> _onAppleSubmitted(
     LoginAppleSubmitted event,
     Emitter<LoginState> emit,
   ) async {
-    emit(state.copyWith(status: LoginStatus.loading));
-    await Future.delayed(const Duration(seconds: 1));
-    await _localStorage.setIsLoggedIn(true);
-    emit(state.copyWith(status: LoginStatus.success));
+    // Implement Apple sign in if needed
   }
 }

@@ -12,6 +12,8 @@ import '../../../../core/widgets/common_text_field.dart';
 import '../../../../injection/injection.dart';
 import '../../../../routes/route_constants.dart';
 import '../../../../core/widgets/common_text.dart';
+import '../bloc/auth_bloc.dart';
+import '../bloc/auth_event.dart';
 import '../bloc/login_bloc.dart';
 import '../bloc/login_event.dart';
 import '../bloc/login_state.dart';
@@ -40,6 +42,7 @@ class _LoginView extends StatelessWidget {
         child: BlocConsumer<LoginBloc, LoginState>(
           listener: (context, state) {
             if (state.status == LoginStatus.success) {
+              context.read<AuthBloc>().add(const AuthStatusChanged(true));
               context.go(RouteConstants.home);
             } else if (state.status == LoginStatus.failure &&
                 state.errorMessage != null) {
